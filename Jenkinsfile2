@@ -19,7 +19,7 @@ pipeline {
                     }
                       stage('Build and run') {
                                           steps {
-                                                 bat ' start cmd.exe'
+                                                // bat ' start cmd.exe'
                                                  bat ' javac c1.java'
                                                  bat 'java c1'
                                                  }
