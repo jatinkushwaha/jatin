@@ -1,5 +1,5 @@
 pipeline {
-        agent jenkins_slave
+        agent Slave1
                stages
                       {
                        stage('One') {
