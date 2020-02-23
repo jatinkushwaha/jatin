@@ -12,5 +12,10 @@ pipeline {
                                           echo 'Ram'
                                }
                       }
+                       stage('Three') {
+                                steps   {
+                                          echo 'Radhe'
+                                }
+                     }
              }
           }
