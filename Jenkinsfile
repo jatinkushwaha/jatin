@@ -14,7 +14,7 @@ pipeline {
                       }
                        stage('namespace')
                                steps   {
-                                          sh label: '', script: kubectl config set-context --current --namespace=jen
+                                          // sh label: '', script: kubectl config set-context --current --namespace=jen
                                }
                        stage('details')
                               steps    {
