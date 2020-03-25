@@ -18,7 +18,7 @@ pipeline {
                                }
                        stage('details')
                               steps    {
-                                          sh label: '', script: kubectl get all -n jen
+                                          sh label: '', script: kubectl get all
                                }
              }
           }
