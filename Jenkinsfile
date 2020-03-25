@@ -12,13 +12,13 @@ pipeline {
                                           echo 'Ram'
                                }
                       }
-                     /*  stage('namespace')
+                      stage('namespace')
                                steps   {
-                                          // sh label: '', script: kubectl config set-context --current --namespace=jen
+                                           sh label: '', script: kubectl config set-context --current --namespace=jen
                                }
                        stage('details')
                               steps    {
-                                    //      sh label: '', script: kubectl get all
-                               }*/
+                                          sh label: '', script: kubectl get all
+                               }
              }
           }
