@@ -19,7 +19,7 @@ pipeline {
                                }*/
                        stage('details')
                               steps    {
-                                          sh label: '', script: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+                                          sh label: '', script: curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
                                           sh label: '', script: chmod +x ./kubectl
                                           sh label: '', script: kubectl version --client
                                           sh label: '', script: kubectl config set-cluster minikube --server=https://192.168.99.100:8443 --insecure-skip-tls-verify=true
