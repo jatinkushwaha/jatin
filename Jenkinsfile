@@ -16,7 +16,7 @@ pipeline {
                                steps   {
                                          //  sh label: '', script: kubectl config set-context --current --namespace=jen
                                }*/
-                       stage('details')
+                        stage('details') {
                               steps    {
                                           sh label: '', script: curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl"
                                           sh label: '', script: chmod +x ./kubectl
@@ -27,4 +27,5 @@ pipeline {
                                           sh label: '', script: kubectl get all
                               }
                       }
+}
 }
