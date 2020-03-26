@@ -15,9 +15,11 @@ pipeline {
                               
                               stage('Apply Kubernetes files') {
     withKubeConfig([credentialsId: 'test_kubeconfig', serverUrl: 'https://192.168.99.100:8443']) {
+            steps {
       sh 'kubectl get all'
     }
   }
+                              }
                      /* stage('namespace')
                                steps   {
                                          //  sh label: '', script: kubectl config set-context --current --namespace=jen
