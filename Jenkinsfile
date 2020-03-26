@@ -12,7 +12,6 @@ pipeline {
                                           echo 'Ram'
                                }
                       }
-                             
                      /* stage('namespace')
                                steps   {
                                          //  sh label: '', script: kubectl config set-context --current --namespace=jen
@@ -26,8 +25,6 @@ pipeline {
                                           sh label: '', script: kubectl config set-context minikube --cluster=minikube --user=minikube
                                           sh label: '', script: kubectl config use-context minikube
                                           sh label: '', script: kubectl get all
-                   
-                                      
-                                          
-                               }
-                      }   }
+                              }
+                      }
+}
