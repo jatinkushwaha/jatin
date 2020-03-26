@@ -12,21 +12,23 @@ pipeline {
                                           echo 'Ram'
                                }
                       }
-                              
-                              stage('Apply Kubernetes files') {
-    withKubeConfig([credentialsId: 'test_kubeconfig', serverUrl: 'https://192.168.99.100:8443']) {
-            steps {
-      sh 'kubectl get all'
-    }
-  }
-                              }
+                             
                      /* stage('namespace')
                                steps   {
                                          //  sh label: '', script: kubectl config set-context --current --namespace=jen
                                }*/
                        stage('details')
                               steps    {
+                                          sh label: '', script: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+                                          sh label: '', script: chmod +x ./kubectl
+                                          sh label: '', script: kubectl config set-cluster minikube --server=https://192.168.99.100:8443 --insecure-skip-tls-verify=true
+                                          sh label: '', script: kubectl config set-context minikube --cluster=minikube --user=minikube
+                                          sh label: '', script: kubectl config use-context minikube 
+                                          sh label: '', script: kubectl version --client
                                           sh label: '', script: kubectl get all
+                   
+                                      
+                                          
                                }
              }
           }
