@@ -23,9 +23,12 @@ pipeline {
                                                 // bat ' javac c1.java'
                                                 // bat 'java c1'
                                                  }
-                                               }*/
+                                                 }*/
+               stage('mail')
+               {
     environment {
         EMAIL_TO = 'jatinkushawah@gmail.com'
+    }
     }
 post {
         failure {
