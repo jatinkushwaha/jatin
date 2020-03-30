@@ -12,18 +12,27 @@ pipeline {
                                           echo 'Ram'
                                }
                       }
-                       stage('clone') {
+                       /*stage('clone') {
                                  steps  {
-                                         git branch: 'master', credentialsId: '8ffc6c93-d2f4-484a-90c0-caf2752be258', poll: false , url: "https://github.com/jatinkushwaha/jatin.git"	
+                                        // git branch: 'master', credentialsId: '8ffc6c93-d2f4-484a-90c0-caf2752be258', poll: false , url: "https://github.com/jatinkushwaha/jatin.git"	
                                       }
-                    }
-                      stage('Build and run') {
+                    }*/
+                      /*stage('Build and run') {
                                           steps {
                                                 // bat ' start cmd.exe'
-                                                 bat ' javac c1.java'
-                                                 bat 'java c1'
+                                                // bat ' javac c1.java'
+                                                // bat 'java c1'
                                                  }
-                                               }
+                                               }*/
+    environment {
+        EMAIL_TO = 'jatinkushawah@gmail.com'
+    }
+post {
+        failure {
+            emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
+                    to: "${EMAIL_TO}", 
+                    subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+        }
+        }
                        }
            }
-                                   
