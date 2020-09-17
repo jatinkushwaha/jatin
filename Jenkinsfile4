@@ -5,6 +5,11 @@ pipeline
             PATH="/opt/apache-maven/bin:$PATH"
             }
         stages {
+             stage("Clean Workspace") {
+                     steps {
+                     cleanWs()
+                      }
+                  }
              stage(" Git Checkout")  {
                      steps  {
                        git branch: 'master' , url: "https://github.com/jatinkushwaha/my-app.git"         
