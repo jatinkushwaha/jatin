@@ -2,10 +2,11 @@ pipeline {
         agent { label ''}
                stages
                       {
-                       stage('clean workspace')
-                       {
+                       stage('clean workspace')  {
+                               steps  {
                          cleanWs()
-                         }
+                           }
+                      }
                        stage('One') {
                                 steps  {
                                         echo 'Hi, this is jatin kumar'
