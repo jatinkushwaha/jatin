@@ -7,40 +7,29 @@ pipeline {
                          cleanWs()
                            }
                       }
-                       stage('One') {
+                       stage('git Checkout') {
                                 steps  {
-                                        echo 'Hi, this is jatin kumar'
+                                    git branch: 'master' , url: "https://github.com/jatinkushwaha/my-app.git"      
                                 }
                       }
-                       stage('Two') {
+                       stage('Set up CI') {
                                 steps   {
-                                          echo 'Ram'
+                                     sh "npm config set registry https://registry.npmjs.org/"
+                                     sh "yarn config set registry https://registry.yarnpkg.com/"
+                                     sh "npm config ls"
+                                     sh "yarn config list"
+                                     sh "yarn install"
                                }
                       }
-                       stage('clone') {
+                       stage('Build') {
                                  steps  {
-                                         git branch: 'master', credentialsId: '8ffc6c93-d2f4-484a-90c0-caf2752be258', poll: false , url: "https://github.com/jatinkushwaha/jatin.git"	
+                                         script {
+                                             dir("${env.WORKSPACE}")  {
+                                             sh "ng build"
                                       }
-                    }
-                      /*stage('Build and run') {
-                                          steps {
-                                                // bat ' start cmd.exe'
-                                                // bat ' javac c1.java'
-                                                // bat 'java c1'
-                                                 }
-                                                 }*/
-              /* stage('mail')
-               {
-    environment {
-        EMAIL_TO = 'jatinkushawah@gmail.com'
-    }
-    }
-post {
-        failure {
-            emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
-                    to: "${EMAIL_TO}", 
-                    subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
-        }
-        }*/
+                                 }
+                               }  
+                        }
+                      
                        }
            }
