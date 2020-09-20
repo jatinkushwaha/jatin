@@ -9,7 +9,7 @@ pipeline {
                       }
                        stage('git Checkout') {
                                 steps  {
-                                    git branch: 'master' , url: "https://github.com/jatinkushwaha/my-app.git"      
+                                    git branch: 'master' , url: "https://github.com/jatinkushwaha/Angular-5-Sample-Demo.git"      
                                 }
                       }
                        stage('Set up CI') {
