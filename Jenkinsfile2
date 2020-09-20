@@ -17,8 +17,8 @@ pipeline {
                                      sh "npm config set registry https://registry.npmjs.org/"
                                      sh "yarn config set registry https://registry.yarnpkg.com/"
                                      sh "npm config ls"
-                                     sh "yarn config list"
-                                     sh "yarn install"
+                                     sh "npm config list"
+                                     sh "npm install"
                                }
                       }
                        stage('Build') {
