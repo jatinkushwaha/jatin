@@ -1,9 +1,9 @@
 pipeline
 {
  agent any
-          environment {
-            PATH="/opt/apache-maven/bin:$PATH"
-            }
+          /*environment {
+          //  PATH="/opt/apache-maven/bin:$PATH"
+            }*/
         stages {
              stage("Clean Workspace") {
                      steps {
