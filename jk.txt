@@ -7,5 +7,3 @@ hhh
 ram
 write some thing
 ok
-check commit
-git revert
