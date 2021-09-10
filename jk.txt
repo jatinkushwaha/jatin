@@ -10,3 +10,4 @@ ok
 testing checkout
 test branch
 offline commit
+online change
